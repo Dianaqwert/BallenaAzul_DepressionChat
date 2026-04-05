@@ -1,0 +1,10 @@
+# Ignorar entornos virtuales
+.venv/
+.env
+
+# Ignorar variables de entorno (¡Súper importante para proteger tu API de Groq!)
+.env
+
+# Ignorar archivos compilados de Python
+__pycache__/
+*.pyc
