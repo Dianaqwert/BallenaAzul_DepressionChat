@@ -59,7 +59,7 @@ DICCIONARIO_CLINICO = {
     
     'Burnout_Situacional': ['abrumad', 'presión', 'entrega', 'carga', 'quemad', 'burnout', 'batalland', 'colapso', 'irritable', 'cabeza', 'exigente', 'deudas', 'dinero', 'lana', 'escuela', 'universidad', 'uni', 'prepa', 'trabajo', 'chamba', 'responsabilidades', 'nervios', 'demasiado', 'gente', 'estrés', 'estresad', 'harto', 'ya no puedo'],
     
-    'Alerta_Suicida': ['matarme', 'matar', 'suicidio', 'suicidarme', 'suicidar', 'terminar con todo', 'terminar con mi vida','termino con mi vida','quitarme la vida', 'morir', 'muerte', 'adiós', 'carta', 'pastillas', 'sobredosis', 'puente', 'colgarme', 'mejor muert', 'sin salida', 'harto de la vida', 'rendirme', 'acabar con todo', 'no vale la pena', 'desaparecer', 'no despertar', 'ya no quiero vivir', 'dormir para siempre', 'cortarme', 'hacerme daño', 'dejar de existir'],
+    'Alerta_Suicida': ['matarme', 'matar', 'suicidio', 'suicidarme', 'suicidar', 'terminar con todo', 'terminar con mi vida','termino con mi vida','quitarme la vida', 'morir', 'muerte', 'adiós', 'carta', 'pastillas', 'sobredosis', 'puente', 'colgarme', 'mejor muert', 'sin salida', 'harto de la vida', 'rendirme', 'acabar con todo', 'no vale la pena', 'desaparecer', 'no despertar', 'ya no quiero vivir', 'dormir para siempre', 'cortarme', 'hacerme daño', 'dejar de existir,desvivirme'],
     
     'Afecto_Positivo': ['hoy', 'personas', 'pensar', 'amig', 'familia', 'vida', 'bien', 'chido', 'feliz', 'ok', 'mejor', 'tranquil', 'calma', 'esperanza', 'motivad', 'descansé']
 }
@@ -136,6 +136,8 @@ def procesar_triage_unificado(datos_cuestionario, mensaje_chat):
     if "Alerta_Suicida" in sintomas_detectados:
         alerta_critica = True
         estado_actual = "Suicidal"
+        confianza = 1.0
+        probabilidades = np.array([0.0, 0.0, 0.0, 0.0, 1.0])
         
     elif estado_actual == "Suicidal":
         if confianza < 0.998:
