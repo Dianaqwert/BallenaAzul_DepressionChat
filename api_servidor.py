@@ -59,7 +59,7 @@ DICCIONARIO_CLINICO = {
     
     'Burnout_Situacional': ['abrumad', 'presión', 'entrega', 'carga', 'quemad', 'burnout', 'batalland', 'colapso', 'irritable', 'cabeza', 'exigente', 'deudas', 'dinero', 'lana', 'escuela', 'universidad', 'uni', 'prepa', 'trabajo', 'chamba', 'responsabilidades', 'nervios', 'demasiado', 'gente', 'estrés', 'estresad', 'harto', 'ya no puedo'],
     
-    'Alerta_Suicida': ['matarme', 'matar', 'suicidio', 'suicidarme', 'suicidar', 'terminar con todo', 'terminar con mi vida','termino con mi vida','quitarme la vida', 'morir', 'muerte', 'adiós', 'carta', 'pastillas', 'sobredosis', 'puente', 'colgarme', 'mejor muert', 'sin salida', 'harto de la vida', 'rendirme', 'acabar con todo', 'no vale la pena', 'desaparecer', 'no despertar', 'ya no quiero vivir', 'dormir para siempre', 'cortarme', 'hacerme daño', 'dejar de existir,desvivirme'],
+    'Alerta_Suicida': ['matarme', 'matar', 'suicidio', 'suicidarme', 'suicidar', 'terminar con todo', 'terminar con mi vida','termino con mi vida','quitarme la vida', 'morir', 'muerte', 'adiós', 'carta', 'pastillas', 'sobredosis', 'puente', 'colgarme', 'mejor muert', 'sin salida', 'harto de la vida', 'rendirme', 'acabar con todo', 'no vale la pena', 'desaparecer', 'no despertar', 'ya no quiero vivir', 'dormir para siempre', 'cortarme', 'hacerme daño', 'dejar de existir,desvivirme','dedsvivo','desvivir'],
     
     'Afecto_Positivo': ['hoy', 'personas', 'pensar', 'amig', 'familia', 'vida', 'bien', 'chido', 'feliz', 'ok', 'mejor', 'tranquil', 'calma', 'esperanza', 'motivad', 'descansé']
 }
