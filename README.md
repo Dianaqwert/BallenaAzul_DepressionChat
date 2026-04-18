@@ -84,5 +84,3 @@ Este backend está configurado con **CORS** habilitado para permitir peticiones 
 Este software es un proyecto de investigación para el curso de Samsung Innovation Campus. **No es un dispositivo médico ni sustituye el diagnóstico, tratamiento o consejo de un profesional de la salud mental.** Es una herramienta diseñada exclusivamente para funcionar como un auxiliar de *triage* cualitativo. Ante cualquier emergencia vital, se recomienda contactar a los servicios de salud locales (ej. Línea de la Vida en México: 800 911 2000).
 
 ---
-
-¡Con este README tu repositorio se verá impecable! Cualquier persona que evalúe tu código (o un futuro reclutador) entenderá de inmediato la magnitud y la estructura de tu desarrollo.
