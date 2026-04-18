@@ -56,7 +56,7 @@ Este backend está diseñado para ser consumido por un cliente frontend (aplicac
 
 ## Ejecución del Servidor
 
-El servidor principal se encuentra en el archivo `api_backend.py`. Para levantarlo en modo desarrollo, ejecuta:
+El servidor principal se encuentra en el archivo `api_servidor.py`. Para levantarlo en modo desarrollo, ejecuta:
 
 ```bash
 uvicorn api_backend:app --reload --host 0.0.0.0 --port 8000
