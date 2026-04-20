@@ -1,86 +1,82 @@
-# La Ballena Solitaria - Chatbot para la Detección y Contención de Primeros Auxilios Psicológicos Especializado para la Detección de Depresión
+# La Ballena Solitaria - Chatbot for Psychological First Aid Detection and Containment Specialized in Depression Detection
 
-Este repositorio contiene el código fuente del **Backend (API RESTful)** para el sistema "La Ballena Solitaria", una herramienta auxiliar de triage clínico y contención emocional. 
+This repository contains the source code for the Backend (RESTful API) of "The Lonely Whale" system, an auxiliary tool for clinical triage and emotional containment.
 
-El sistema utiliza una **arquitectura híbrida de inteligencia artificial** (no agentica) que combina modelos deterministas y probabilísticos para evaluar el riesgo de depresión y ansiedad, priorizando siempre la seguridad del usuario mediante un diseño seguro.
+The system utilizes a hybrid artificial intelligence architecture (non-agentic) that combines deterministic and probabilistic models to assess the risk of depression and anxiety, always prioritizing user safety through a secure-by-design approach.
 
-Este backend está diseñado para ser consumido por un cliente frontend (aplicación web) alojado en un repositorio independiente.
+This backend is designed to be consumed by a frontend client (web application) hosted in an independent repository.
 
-## Arquitectura del Sistema (3 Fases)
+## System Architecture (3 Phases)
 
-1. **Fase 1 (Perfilado estático):** Agrupamiento clínico mediante aprendizaje no supervisado (**K-Means**) basado en estándares psicométricos (PHQ-9 y GAD-7).
-2. **Fase 2 (Análisis dinámico NLP):** Extracción de características semánticas con el transformer **RoBERTuito** y clasificación emocional mediante una red neuronal densa (**Perceptrón Multicapa / MLP**) balanceada con SMOTE.
-3. **Fase 3 (Contención y seguridad):** Motor de reglas de reconocimiento de entidades nombradas (NER) , acoplado a un modelo de lenguaje grande (**Llama-3.3-70b** vía Groq API) con inyección de contexto dinámico. Generación automatizada de expedientes en formato PDF.
+1.  **Phase 1 (Static Profiling):** Clinical clustering via unsupervised learning (**K-Means**) based on psychometric standards (**PHQ-9 and GAD-7**).
+2.  **Phase 2 (Dynamic NLP Analysis):** Semantic feature extraction using the **RoBERTuito** transformer and emotional classification via a dense neural network (**Multilayer Perceptron / MLP**) balanced with **SMOTE**.
+3.  **Phase 3 (Containment and Safety):** Named Entity Recognition (**NER**) rules engine coupled with a Large Language Model (**Llama-3.3-70b via Groq API**) with dynamic context injection. Automated clinical record generation in PDF format.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
-* **Framework API:** [FastAPI](https://fastapi.tiangolo.com/) (Python)
+* **API Framework:** FastAPI (Python)
 * **Machine Learning:** Scikit-Learn, Imbalanced-learn (SMOTE)
-* **Procesamiento de Lenguaje Natural (NLP):** HuggingFace Transformers, PyTorch
-* **LLM / Generación de Texto:** Groq API (Llama 3)
-* **Generación de Reportes:** Matplotlib, FPDF
+* **Natural Language Processing (NLP):** HuggingFace Transformers, PyTorch
+* **LLM / Text Generation:** Groq API (Llama 3)
+* **Report Generation:** Matplotlib, FPDF
 
-## Requisitos Previos
+## Prerequisites
 
-* Python 3.9 o superior.
-* Una clave de API de Groq (`GROQ_API_KEY`).
+* Python 3.9 or higher.
+* A Groq API Key (`GROQ_API_KEY`).
 
-## Instalación y Configuración
+## Installation and Setup
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repo-backend.git
-   cd tu-repo-backend
-   ```
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-user/your-backend-repo.git](https://github.com/your-user/your-backend-repo.git)
+    cd your-backend-repo
+    ```
 
-2. **Crear y activar un entorno virtual:**
-   ```bash
-   python -m venv venv
-   # En Windows:
-   venv\Scripts\activate
-   # En Mac/Linux:
-   source venv/bin/activate
-   ```
+2.  **Create and activate a virtual environment:**
+    ```bash
+    python -m venv venv
+    # On Windows:
+    venv\Scripts\activate
+    # On Mac/Linux:
+    source venv/bin/activate
+    ```
 
-3. **Instalar las dependencias:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-   *(Asegúrate de tener instalados paquetes como `fastapi`, `uvicorn`, `transformers`, `torch`, `scikit-learn`, `groq`, `fpdf`, `matplotlib`, `python-dotenv`).*
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+    *(Ensure packages such as `fastapi`, `uvicorn`, `transformers`, `torch`, `scikit-learn`, `groq`, `fpdf`, `matplotlib`, and `python-dotenv` are installed).*
 
-4. **Configurar Variables de Entorno:**
-   Crea un archivo `.env` en la raíz del proyecto y agrega tu clave de API:
-   ```env
-   GROQ_API_KEY=tu_clave_api_aqui
-   ```
+4.  **Configure Environment Variables:**
+    Create a `.env` file in the project root and add your API key:
+    ```env
+    GROQ_API_KEY=your_api_key_here
+    ```
 
-## Ejecución del Servidor
+## Running the Server
 
-El servidor principal se encuentra en el archivo `api_servidor.py`. Para levantarlo en modo desarrollo, ejecuta:
+The main server is located in the `api_servidor.py` file. To start it in development mode, run:
 
 ```bash
 uvicorn api_backend:app --reload --host 0.0.0.0 --port 8000
-```
-El servidor estará disponible en `http://localhost:8000`.
 
-## Documentación de la API (Endpoints)
+## API Documentation (Endpoints)
 
-FastAPI genera documentación interactiva automáticamente. Una vez que el servidor esté corriendo, puedes visitar:
-* **Swagger UI:** `http://localhost:8000/docs`
-* **ReDoc:** `http://localhost:8000/redoc`
+FastAPI automatically generates interactive documentation. Once the server is running, you can visit:
+* Swagger UI: `http://localhost:8000/docs`
+* ReDoc: `http://localhost:8000/redoc`
 
-### Endpoints Principales:
+### Main Endpoints:
 
-* `POST /api/iniciar_sesion`: Recibe los datos sociodemográficos y los puntajes del cuestionario clínico. Ejecuta la Fase 1 (K-Means).
-* `POST /api/chat`: Recibe el texto del usuario. Ejecuta la Fase 2 (RoBERTuito + MLP) y la Fase 3 (NER + LLM). Devuelve la respuesta empática de contención.
-* `POST /api/terminar_sesion`: Clausura la sesión actual, calcula el promedio probabilístico y genera el archivo PDF con el expediente clínico. Devuelve la URL estática del documento.
+* `POST /api/iniciar_sesion`: Receives sociodemographic data and clinical questionnaire scores. Executes Phase 1 (K-Means).
+* `POST /api/chat`: Receives user text. Executes Phase 2 (RoBERTuito + MLP) and Phase 3 (NER + LLM). Returns an empathetic containment response.
+* `POST /api/terminar_sesion`: Closes the current session, calculates the probabilistic average, and generates the PDF clinical record. Returns the static URL of the document.
 
-## Conexión con el Frontend
+## Frontend Connection
+This backend is configured with CORS enabled to allow requests from the client (defaulting to http://localhost:4200 for Angular environments). If the frontend is deployed on another domain, the allow_origins list in api_backend.py must be updated.
 
-Este backend está configurado con **CORS** habilitado para permitir peticiones desde el cliente (por defecto `http://localhost:4200` para entornos Angular). Si el frontend se despliega en otro dominio, es necesario actualizar la lista `allow_origins` en `api_backend.py`.
-
-## Aviso 
-
-Este software es un proyecto de investigación para el curso de Samsung Innovation Campus. **No es un dispositivo médico ni sustituye el diagnóstico, tratamiento o consejo de un profesional de la salud mental.** Es una herramienta diseñada exclusivamente para funcionar como un auxiliar de *triage* cualitativo. Ante cualquier emergencia vital, se recomienda contactar a los servicios de salud locales (ej. Línea de la Vida en México: 800 911 2000).
+## Disclaimer 
+This software is a research project for the Samsung Innovation Campus course. It is not a medical device and does not substitute for the diagnosis, treatment, or advice of a mental health professional. It is a tool designed exclusively to function as a qualitative triage aid. In case of any life-threatening emergency, it is recommended to contact local health services (e.g., Línea de la Vida in Mexico: 800 911 2000).
 
 ---
