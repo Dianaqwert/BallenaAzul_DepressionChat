@@ -55,11 +55,11 @@ This backend is designed to be consumed by a frontend client (web application) h
     ```
 
 ## Running the Server
-
 The main server is located in the `api_servidor.py` file. To start it in development mode, run:
 
 ```bash
-uvicorn api_backend:app --reload --host 0.0.0.0 --port 8000 ```
+uvicorn api_backend:app --reload --host 0.0.0.0 --port 8000
+```
 
 ## API Documentation (Endpoints)
 
